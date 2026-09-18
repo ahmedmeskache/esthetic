@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Book — The Glow Aesthetic Clinic</title>
+  <meta name="description" content="Book a consultation or treatment at The Glow Aesthetic Clinic in Zamalek, Cairo. Walk around, ask questions — no pressure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="progress-bar"></div>
+
+  <div class="loader" aria-hidden="true">
+    <div class="ring"><img src="assets/logo.jpg" alt=""></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="announce">20% off your first HydraFacial — mention GLOVING at booking</div>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="The Glow — home">
+        <img class="brand-mark" src="assets/logo.jpg" alt="The Glow logo">
+        <span class="brand-text">
+          <span class="brand-name">The Glow</span>
+          <span class="brand-sub">Aesthetic Clinic</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
+        <a href="contact.html" class="nav-link nav-cta active">Book Now</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="team.html">Team</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html" class="mobile-cta">Book Now</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="aurora" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span></div>
+      <div class="container">
+        <p class="page-overline reveal">Book Now</p>
+        <h1 class="page-title reveal" style="--d:.08s">Let's find <em>your calm.</em></h1>
+        <p class="page-lead reveal" style="--d:.16s">Tell us a little. We'll reply within the day. And no — we won't push you into a package.</p>
+      </div>
+    </section>
+
+    <section class="book section">
+      <div class="container">
+        <div class="book-grid">
+          <form class="book-form reveal reveal-left" id="bookForm">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Sarah Mostafa" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="01x xxxx xxxx" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+            <div class="field">
+              <label for="treatment">Treatment</label>
+              <select id="treatment" name="treatment" required>
+                <option value="" selected disabled>Choose one</option>
+                <option value="hydrafacial">HydraFacial Signature</option>
+                <option value="microneedling">Microneedling Renewal</option>
+                <option value="peel">Chemical Peel Glow</option>
+                <option value="dermaplaning">Dermaplaning Silk</option>
+                <option value="led">LED Therapy</option>
+                <option value="brow">Brow &amp; Lash Design</option>
+                <option value="massage">Candlelit Body Massage</option>
+                <option value="consult">Just a consultation</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Preferred date</label>
+              <input type="date" id="date" name="date">
+            </div>
+            <div class="field">
+              <label for="notes">Anything we should know?</label>
+              <textarea id="notes" name="notes" rows="3" placeholder="Skin concerns, questions, time constraints..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Request appointment <span class="arrow">→</span></button>
+            <p class="form-note">No deposit · free to cancel up to 24h ahead</p>
+            <p class="form-success" id="formSuccess">Request sent. We'll be in touch within the day — talk soon.</p>
+          </form>
+
+          <aside class="book-info reveal reveal-right" style="--d:.16s">
+            <div>
+              <h2 class="story-heading" style="font-size:clamp(1.6rem,3vw,2.1rem)">Prefer to just <em>talk?</em></h2>
+              <p style="margin-top:1rem;color:rgba(251,247,239,0.75);line-height:1.85">Call, message, or walk in for a coffee — the kettle is on and the answers are free.</p>
+            </div>
+            <div class="info-stack" style="display:grid;gap:1.8rem">
+              <div class="info-block">
+                <h3>Visit us</h3>
+                <p>12 Zamalek St, first floor, Cairo<br>Open daily 10am – 9pm</p>
+              </div>
+              <div class="info-block">
+                <h3>Call</h3>
+                <p><a href="tel:+201234567890">+20 123 456 7890</a><br>WhatsApp answers fastest</p>
+              </div>
+              <div class="info-block">
+                <h3>Write</h3>
+                <p><a href="mailto:hello@theglow.com">hello@theglow.com</a></p>
+              </div>
+              <div class="socials">
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="TikTok">TK</a>
+                <a href="#" aria-label="Facebook">FB</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec-deep section">
+      <div class="container">
+        <div class="section-head" style="text-align:center">
+          <p class="eyebrow reveal" style="margin-inline:auto">Before you ask</p>
+          <h2 class="section-title reveal" style="--d:.08s;margin-inline:auto">Quick <em>answers.</em></h2>
+        </div>
+        <div class="faq">
+          <details class="reveal">
+            <summary>Do I need to pay a deposit to book?</summary>
+            <p>No. Your appointment is confirmed with a simple yes from you. Only if you miss it twice without notice we ask for one to hold future slots.</p>
+          </details>
+          <details class="reveal" style="--d:.06s">
+            <summary>Is parking available?</summary>
+            <p>There's street parking on Zamalek St and a public garage two minutes' walk away. Valet is available in the evening.</p>
+          </details>
+          <details class="reveal" style="--d:.12s">
+            <summary>Can I ask questions before booking?</summary>
+            <p>Anytime — call, WhatsApp or visit. Questions are always welcome and never cost anything.</p>
+          </details>
+          <details class="reveal" style="--d:.18s">
+            <summary>Do you treat men too?</summary>
+            <p>Yes, and more each year. Clinics should be for everyone; ours is.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img class="brand-mark" src="assets/logo.jpg" alt="The Glow logo">
+          <span class="brand-text">
+            <span class="brand-name">The Glow</span>
+            <span class="brand-sub">Aesthetic Clinic</span>
+          </span>
+        </a>
+        <p class="footer-note">Slow, scientific, serene. Skin care the way it was meant to feel.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">Our Story</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="team.html">Team</a>
+      </div>
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <a href="services.html">HydraFacial</a>
+        <a href="services.html">Microneedling</a>
+        <a href="services.html">Chemical Peels</a>
+        <a href="services.html">Dermaplaning</a>
+      </div>
+      <div class="footer-col">
+        <h4>Keep in touch</h4>
+        <p class="footer-contact">First dibs on appointments and seasonal specials. No spam, ever.</p>
+        <form class="newsletter" id="newsletterForm">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+        <p>© <span id="year"></span> The Glow Aesthetic Clinic. All rights reserved.</p>
+        <p>Designed with calm.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
