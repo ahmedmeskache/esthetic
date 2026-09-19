@@ -60,15 +60,15 @@
       dot.style.top = my + 'px';
     });
     const loop = () => {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
+      rx += (mx - rx) * 0.42;
+      ry += (my - ry) * 0.42;
       ring.style.left = rx + 'px';
       ring.style.top = ry + 'px';
       requestAnimationFrame(loop);
     };
     loop();
 
-    const hot = 'a, button, .svc-row, input, textarea, select, summary, .g-card, .gm';
+    const hot = 'a, button, .svc-row, input, textarea, select, summary, .g-card, .gm, .menu-row';
     document.addEventListener('mouseover', e => {
       if (e.target.closest(hot)) { dot.classList.add('is-active'); ring.classList.add('is-active'); }
     });
