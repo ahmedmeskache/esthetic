@@ -262,6 +262,25 @@
     });
   }
 
+  /* ---------- service menu preview (swap photo on hover) ---------- */
+  const menuRows = $$('.menu-row');
+  const pvImgs = $$('.menu-preview .pv');
+  const pvName = $('.menu-preview-name');
+  if (menuRows.length && pvImgs.length) {
+    const show = (i, name) => {
+      pvImgs.forEach(img => img.classList.toggle('active', img === pvImgs[i]));
+      if (pvName && name !== undefined) pvName.textContent = name;
+    };
+    menuRows.forEach(row => {
+      const enter = () => {
+        const h3 = row.querySelector('h3');
+        show(Number(row.dataset.preview), h3 ? h3.textContent : undefined);
+      };
+      row.addEventListener('mouseenter', enter);
+      row.addEventListener('focus', enter);
+    });
+  }
+
   /* ---------- newsletter ---------- */
   const newsletter = $('#newsletterForm');
   if (newsletter) {
