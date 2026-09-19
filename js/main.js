@@ -4,6 +4,7 @@
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from((c || document).querySelectorAll(s));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- year ---------- */
   const year = $('#year');
@@ -40,41 +41,6 @@
 
   if (toTop) {
     toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
-
-  /* ---------- custom cursor ---------- */
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (finePointer && !reduceMotion) {
-    const dot = document.createElement('div');
-    const ring = document.createElement('div');
-    dot.className = 'cursor-dot';
-    ring.className = 'cursor-ring';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-    document.body.classList.add('has-cursor');
-
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-    });
-    const loop = () => {
-      if (Math.hypot(mx - rx, my - ry) > 320) { rx = mx; ry = my; }
-      else { rx += (mx - rx) * 0.55; ry += (my - ry) * 0.55; }
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(loop);
-    };
-    loop();
-
-    const hot = 'a, button, .svc-row, input, textarea, select, summary, .g-card, .gm, .menu-row';
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest(hot)) { dot.classList.add('is-active'); ring.classList.add('is-active'); }
-    });
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest(hot)) { dot.classList.remove('is-active'); ring.classList.remove('is-active'); }
-    });
   }
 
   /* ---------- magnetic buttons ---------- */
