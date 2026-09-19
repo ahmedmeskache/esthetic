@@ -2,7 +2,7 @@
   'use strict';
 
   const $ = (s, c = document) => c.querySelector(s);
-  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const $$ = (s, c = document) => Array.from((c || document).querySelectorAll(s));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- year ---------- */
