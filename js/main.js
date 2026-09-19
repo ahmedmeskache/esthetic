@@ -180,7 +180,6 @@
       setInterval(advance, 3000);
       autoTrack.addEventListener('mouseenter', () => { paused = true; });
       autoTrack.addEventListener('mouseleave', () => { paused = false; });
-      $('.gallery-nav').addEventListener('click', () => autoTrack.scrollBy({ left: step(), behavior: 'smooth' }));
     }
   }
 
