@@ -60,8 +60,8 @@
       dot.style.top = my + 'px';
     });
     const loop = () => {
-      rx += (mx - rx) * 0.42;
-      ry += (my - ry) * 0.42;
+      if (Math.hypot(mx - rx, my - ry) > 320) { rx = mx; ry = my; }
+      else { rx += (mx - rx) * 0.55; ry += (my - ry) * 0.55; }
       ring.style.left = rx + 'px';
       ring.style.top = ry + 'px';
       requestAnimationFrame(loop);
