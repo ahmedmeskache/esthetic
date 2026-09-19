@@ -1775,3 +1775,162 @@ section { scroll-margin-top: 90px; position: relative; }
   .strip { flex-direction: column; text-align: center; }
   .page-lead { max-width: 40ch; }
 }
+
+/* ============================================================
+   SERVICE MENU — titles stacked, photo pops on hover
+   ============================================================ */
+.menu-wrap {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+.menu { display: grid; }
+.menu-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.4rem;
+  align-items: baseline;
+  padding: 1.5rem 1rem 1.5rem 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  transition: padding-left 0.4s var(--ease), background 0.4s;
+}
+.menu-row:last-child { border-bottom: 1px solid var(--line); }
+.menu-row:hover { padding-left: 1.2rem; }
+.menu-index {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+.menu-main h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  color: var(--beige);
+  line-height: 1.15;
+  transition: color 0.35s, transform 0.4s var(--ease);
+}
+.menu-row:hover .menu-main h3 { color: var(--gold-light); transform: translateX(5px); }
+.menu-main p {
+  color: rgba(245, 239, 227, 0.58);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-top: 0.35rem;
+  max-width: 46ch;
+}
+.menu-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.menu-tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 239, 227, 0.45);
+}
+.menu-price {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.18rem;
+}
+
+/* the popping preview */
+.menu-pop {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  width: 158px;
+  height: 178px;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+  transform: translateX(28px) translateY(-40%) scale(0.68) rotate(-6deg);
+  transition: opacity 0.45s var(--ease), transform 0.55s var(--ease-bounce);
+}
+.menu-pop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(198, 167, 94, 0.25);
+}
+.menu-pop::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border: 1px dashed rgba(198, 167, 94, 0.35);
+  border-radius: 26px;
+  z-index: -1;
+}
+.menu-row:hover .menu-pop {
+  opacity: 1;
+  transform: translateX(0) translateY(-50%) scale(1) rotate(-2deg);
+}
+
+/* big signature photo beside the menu */
+.menu-feature {
+  position: sticky;
+  top: 130px;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.menu-feature img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: saturate(0.94);
+  transition: transform 1.4s var(--ease);
+}
+.menu-feature:hover img { transform: scale(1.06); }
+.menu-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 15, 30, 0.8), transparent 60%);
+  pointer-events: none;
+}
+.menu-feature figcaption {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 1.2rem;
+  z-index: 2;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--beige);
+}
+.menu-feature figcaption small {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 1080px) {
+  .menu-wrap { grid-template-columns: 1fr; }
+  .menu-feature { position: static; max-width: 460px; width: 100%; margin-inline: auto; }
+}
+@media (max-width: 768px) {
+  .menu-row { gap: 1rem; }
+  .menu-pop { display: none; }
+  .menu-meta { flex-direction: row; align-items: center; gap: 0.8rem; }
+}
+@media (max-width: 520px) {
+  .menu-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .menu-meta { justify-content: space-between; margin-top: 0.4rem; }
+  .menu-index { display: none; }
+}
