@@ -79,6 +79,9 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     $$('a', mobileMenu).forEach(a => a.addEventListener('click', closeMenu));
+    mobileMenu.addEventListener('click', e => {
+      if (e.target === mobileMenu) closeMenu();
+    });
   }
 
   /* ---------- reveal on scroll ---------- */

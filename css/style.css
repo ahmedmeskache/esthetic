@@ -224,7 +224,8 @@ section { scroll-margin-top: 90px; position: relative; }
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 800;
+  /* above .mobile-menu (850) so the hamburger stays tappable while open */
+  z-index: 860;
   background: rgba(9, 15, 30, 0.35);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -351,10 +352,10 @@ section { scroll-margin-top: 90px; position: relative; }
   align-items: center;
   justify-content: center;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s var(--ease), visibility 0.5s;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
 }
-.mobile-menu.open { opacity: 1; visibility: visible; }
+.mobile-menu.open { opacity: 1; pointer-events: auto; }
 .mobile-menu::before {
   content: "";
   position: absolute;
@@ -369,18 +370,19 @@ section { scroll-margin-top: 90px; position: relative; }
   font-size: 2.3rem;
   color: var(--beige);
   padding: 0.5rem 0;
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.3s;
 }
-.mobile-menu.open a { opacity: 1; transform: none; }
-.mobile-menu.open a:nth-child(1) { transition-delay: 0.08s; }
-.mobile-menu.open a:nth-child(2) { transition-delay: 0.14s; }
-.mobile-menu.open a:nth-child(3) { transition-delay: 0.2s; }
-.mobile-menu.open a:nth-child(4) { transition-delay: 0.26s; }
-.mobile-menu.open a:nth-child(5) { transition-delay: 0.32s; }
-.mobile-menu.open a:nth-child(6) { transition-delay: 0.38s; }
-.mobile-menu.open a:nth-child(7) { transition-delay: 0.44s; }
+.mobile-menu.open a { animation: menuLinkIn 0.45s var(--ease) backwards; }
+.mobile-menu.open a:nth-child(1) { animation-delay: 0.03s; }
+.mobile-menu.open a:nth-child(2) { animation-delay: 0.07s; }
+.mobile-menu.open a:nth-child(3) { animation-delay: 0.11s; }
+.mobile-menu.open a:nth-child(4) { animation-delay: 0.15s; }
+.mobile-menu.open a:nth-child(5) { animation-delay: 0.19s; }
+.mobile-menu.open a:nth-child(6) { animation-delay: 0.23s; }
+.mobile-menu.open a:nth-child(7) { animation-delay: 0.27s; }
+@keyframes menuLinkIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
 .mobile-menu a:hover { color: var(--gold); transform: scale(1.06); }
 .mobile-cta {
   font-family: var(--sans) !important;
